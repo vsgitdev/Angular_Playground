@@ -16,13 +16,18 @@ export class DesignationComponent implements OnInit{
 
   
   designationList: iDesignation [] = [];
+  isLoader: boolean = true;
   MasterService = inject(MasterService)
 
   ngOnInit(): void {
       this.MasterService.getDesignations().subscribe((res:any)=>{
         this.designationList = res;
-
-      })
+        this.isLoader = false;
+      },error=>{
+        alert('API error/Network Down')
+        this.isLoader = false;
+      }
+    )
   }
 
 }
