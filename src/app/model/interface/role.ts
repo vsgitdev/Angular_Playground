@@ -10,3 +10,10 @@ export interface iDesignation {
     title: string
     body: string
 }
+
+export interface APIResponseModel {
+    data: any;
+    result: any;
+    message: string;
+    
+}
