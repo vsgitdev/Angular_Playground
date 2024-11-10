@@ -4,11 +4,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { APIResponseModel, Employee, Project } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
+import { AlertComponent } from "../../resusableComponents/alert/alert.component";
 
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule, DatePipe],
+  imports: [ReactiveFormsModule, DatePipe, AlertComponent],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css'
 })

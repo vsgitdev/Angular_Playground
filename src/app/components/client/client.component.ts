@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { APIResponseModel } from '../../model/interface/role';
 import { DatePipe, JsonPipe, UpperCasePipe, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { AlertComponent } from "../../resusableComponents/alert/alert.component";
+import { ButtonComponent } from "../../resusableComponents/button/button.component";
 
 
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule, UpperCasePipe, DatePipe, JsonPipe, AsyncPipe],
+  imports: [FormsModule, UpperCasePipe, DatePipe, JsonPipe, AsyncPipe, AlertComponent, ButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -37,7 +39,7 @@ export class ClientComponent implements OnInit {
     })
   }
 
-  onSaveClient() {
+  onSaveClient(data: string) {
     debugger;
     this.clientService.addUpdate(this.clientObj).subscribe((res: APIResponseModel) => {
       if (res.result) {
