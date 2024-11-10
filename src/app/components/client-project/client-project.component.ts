@@ -1,7 +1,7 @@
 import { ClientService } from './../../services/client.service';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { APIResponseModel, Employee } from '../../model/interface/role';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { APIResponseModel, Employee, Project } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
 
 @Component({
@@ -15,7 +15,7 @@ export class ClientProjectComponent implements OnInit{
 
   projectForm: FormGroup = new FormGroup({
     clientProjectId: new FormControl(0),
-    projectName: new FormControl(""),
+    projectName: new FormControl("",[Validators.required, Validators.minLength(4)]),
     startDate: new FormControl(""),
     expectedEndDate: new FormControl(""),
     leadByEmpId: new FormControl(""),
@@ -32,11 +32,20 @@ export class ClientProjectComponent implements OnInit{
   clientSrv = inject(ClientService);
   employeeList: Employee[]=[];
   clientList: Client[]=[];
+  projectList: Project[]=[];
 
   ngOnInit(): void {
       this.getAllClients();
       this.getAllEmployee();
-      this.onSaveProject();
+      this.getAllClientProjects();
+      
+  }
+
+  
+  getAllClientProjects() {
+    this.clientSrv.getAllClientProjects().subscribe((res:APIResponseModel)=>{
+      this.projectList = res.data
+    })    
   }
 
   getAllEmployee() {
@@ -44,6 +53,7 @@ export class ClientProjectComponent implements OnInit{
       this.employeeList = res.data
     })    
   }
+ 
 
   getAllClients() {
     this.clientSrv.getAllClients().subscribe((res:APIResponseModel)=>{
@@ -54,7 +64,7 @@ export class ClientProjectComponent implements OnInit{
   onSaveProject() {
     const formValue = this.projectForm.value;
     debugger;
-    this.clientSrv.addClientProjectUpdate(formValue).subscribe((res:APIResponseModel)=>{
+    this.clientSrv.addUpdateClientProject(formValue).subscribe((res:APIResponseModel)=>{
       if(res.result) {
         alert('Project created successfully')
       }else {

@@ -28,8 +28,19 @@ export class ClientService {
     return this.http.delete<APIResponseModel>(environment.API_URL + "DeleteClientByClientId?clientId=" + id)
   }
 
-  addClientProjectUpdate (obj: Client):Observable<APIResponseModel> {
-    return this.http.post<APIResponseModel>(environment.API_URL + "AddClientProjectUpdate", obj)
+  addUpdateClientProject (obj: Client):Observable<APIResponseModel> {
+    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClientProject", obj)
   }
+
+  getAllClientProjects ():Observable<APIResponseModel> {
+    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClientProjects")
+  }
+
+  getAllUser () {
+    return this.http.get("https://jsonplaceholder.typicode.com/users")
+  }
+
+
+  
    
 }

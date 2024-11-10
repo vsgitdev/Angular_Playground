@@ -10,27 +10,30 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Sr No</th>
-                                    <th>Company Name</th>
-                                    <th>Person Name</th>
-                                    <th>Contact No</th>
-                                    <th>City</th>   
-                                    <th>Action</th>                                  
+                                    <th>Employee Name</th>
+                                    <th>Employee Id</th>
+                                    <th>Code</th>
+                                    <th>Email</th>
+                                    <th>Designation</th>   
+                                    <th>Project Name</th>
+                                    <th>Start Date</th>  
+                                    <th>Expected Date</th>  
+                                    <th>Client Name</th>                                                              
                             </thead>
                             <tbody>
-                                <!-- @for (item of clientList; track $index) {
+                                @for (item of projectList; track $index) {
                                     <tr>
-                                        <td>{{ $index+1}}</td>
-                                        <td>{{item.companyName}}</td>
-                                        <td>{{item.contactPersonName}}</td>
-                                        <td>{{item.contactNo}}</td>
-                                        <td>{{item.city}}</td>
-                                        <td> -->
-                                            <!-- <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
-                                            <button class="btn btn-danger" (click)="onDelete(item.clientId)">Delete</button>
-                                        </td>
+                                        <td>{{item.empName}}</td>
+                                        <td>{{item.empId}}</td>
+                                        <td>{{item.empCode}}</td>
+                                        <td>{{item.empEmailId}}</td>
+                                        <td>{{item.empDesignation}}</td> 
+                                        <td>{{item.projectName}}</td>
+                                        <td>{{item.startDate}}</td>
+                                        <td>{{item.expectedEndDate}}</td>
+                                        <td>{{item.clientName}}</td>                                       
                                     </tr>
-                                }                                 -->
+                                }                                
                             </tbody>
                         </table>
                     </div>
@@ -49,6 +52,16 @@
                         <div class="col-6">
                             <label for="">Project Name</label>
                             <input type="text" formControlName="projectName" class="form-control">
+                            @if(projectForm.controls['projectName'].touched) {
+                                <div class="text-danger">
+                                    @if (projectForm.controls['projectName'].errors?.['required']) {
+                                        <span>This is required</span>
+                                    }
+                                    @if (projectForm.controls['projectName'].errors?.['minlength']) {
+                                        <span>Min 4 char Required</span>
+                                    }
+                                </div>
+                            }
                             
                         </div>
                         <div class="col-6">
@@ -106,8 +119,8 @@
                         <div class="col-6 text-center">
                             <button class="btn btn-secondary">Reset Client</button>
                         </div>
-                        <div class="col-6 text-center" (click)="onSaveProject()">
-                            <button class="btn btn-success">Save</button>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-success" [disabled]="projectForm.invalid" (click)="onSaveProject()">Save</button>
                         </div>
                     </div>
                 </form>

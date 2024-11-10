@@ -27,3 +27,15 @@ export interface Employee {
     empDesignation: string
     role: string
 }
+
+export interface Project {
+    empName: string
+    empId: string
+    empCode: string
+    empEmailId: string
+    empDesignation: string
+    projectName: string
+    startDate: Date
+    expectedEndDate: Date
+    clientName:  string
+} 
