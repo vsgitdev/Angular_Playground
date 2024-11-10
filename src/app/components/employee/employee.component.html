@@ -1,1 +1,26 @@
-<p>employee works!</p>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>   
+                    <th>Code</th> 
+                    <th>Email</th> 
+                    <th>Designation</th> 
+                    <th>Role</th>                      
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of employeeList;let srno = index">
+                    <td>{{ data.empId}}</td>
+                    <td>{{ data.empName}}</td>
+                    <td>{{ data.empCode}}</td>    
+                    <td>{{ data.empEmailId}}</td>    
+                    <td>{{ data.empDesignation}}</td>    
+                    <td>{{ data.role}}</td>                            
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

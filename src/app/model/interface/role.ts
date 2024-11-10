@@ -5,15 +5,25 @@ export interface IRole {
 
 
 export interface iDesignation {
-    userId: number
-    id: number
-    title: string
-    body: string
+    message : string;
+    result: boolean;
+    data:any;
+    designationId: number,
+    designation: string
 }
 
 export interface APIResponseModel {
     data: any;
-    result: any;
+    result: boolean;
     message: string;
     
+}
+
+export interface Employee {
+    empName: string
+    empId: string
+    empCode: string
+    empEmailId: string
+    empDesignation: string
+    role: string
 }

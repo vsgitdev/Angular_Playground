@@ -1,4 +1,4 @@
-<p>designation works!</p>
+
 <div class="row">
 
     @if (isLoader) {
@@ -18,16 +18,14 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>UserId</th>
-                        <th>Title</th>
-                        <th>Body</th>
+                        <th>DesignationId</th>
+                        <th>Designation</th>                        
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of designationList;let srno = index">
-                        <td>{{ data.userId}}</td>
-                        <td>{{ data.title}}</td>
-                        <td>{{ data.body}}</td>
+                        <td>{{ data.designationId}}</td>
+                        <td>{{ data.designation}}</td>                        
                     </tr>
                 </tbody>
             </table>

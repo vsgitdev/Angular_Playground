@@ -13,7 +13,7 @@ export class MasterService {
   constructor(private http: HttpClient) { }
 
   getDesignations():Observable<APIResponseModel>{
-    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllDesignations") 
+    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllDesignation") 
     
   }
 }
