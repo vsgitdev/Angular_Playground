@@ -1,5 +1,6 @@
+import { DatePipe } from '@angular/common';
 import { ClientService } from './../../services/client.service';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { APIResponseModel, Employee, Project } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
@@ -7,7 +8,7 @@ import { Client } from '../../model/class/Client';
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css'
 })
@@ -32,19 +33,28 @@ export class ClientProjectComponent implements OnInit{
   clientSrv = inject(ClientService);
   employeeList: Employee[]=[];
   clientList: Client[]=[];
-  projectList: Project[]=[];
+  // projectList: Project[]=[];
+  
+
+  firstName = signal("Angular 18");
+  projectList = signal<Project[]>([])
 
   ngOnInit(): void {
+      const name = this.firstName();
       this.getAllClients();
       this.getAllEmployee();
       this.getAllClientProjects();
       
   }
 
+  changeFnAme() {
+    this.firstName.set("ReactJS")
+  }
+
   
   getAllClientProjects() {
     this.clientSrv.getAllClientProjects().subscribe((res:APIResponseModel)=>{
-      this.projectList = res.data
+      this.projectList.set(res.data)
     })    
   }
 

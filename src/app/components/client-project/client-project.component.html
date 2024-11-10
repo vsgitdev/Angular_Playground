@@ -1,8 +1,9 @@
 <div class="row">
-    <div class="col-8">
+    <div class="col-12">
         <div class="card">
             <div class="card-header bg-success">
-                Client List
+                Client List - {{firstName()}}
+                <button class="btn btn-danger" (click)="changeFnAme()">Change F Name</button>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -21,7 +22,7 @@
                                     <th>Client Name</th>                                                              
                             </thead>
                             <tbody>
-                                @for (item of projectList; track $index) {
+                                @for (item of projectList(); track $index) {
                                     <tr>
                                         <td>{{item.empName}}</td>
                                         <td>{{item.empId}}</td>
@@ -29,8 +30,8 @@
                                         <td>{{item.empEmailId}}</td>
                                         <td>{{item.empDesignation}}</td> 
                                         <td>{{item.projectName}}</td>
-                                        <td>{{item.startDate}}</td>
-                                        <td>{{item.expectedEndDate}}</td>
+                                        <td>{{item.startDate | date:'dd-MMM-yyyy'}}</td>
+                                        <td>{{item.expectedEndDate | date:'dd-MMM-yyyy'}}</td>
                                         <td>{{item.clientName}}</td>                                       
                                     </tr>
                                 }                                

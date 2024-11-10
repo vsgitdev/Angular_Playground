@@ -8,8 +8,8 @@ export interface iDesignation {
     message : string;
     result: boolean;
     data:any;
-    designationId: number,
-    designation: string
+    designationId: number;
+    designation: string;
 }
 
 export interface APIResponseModel {

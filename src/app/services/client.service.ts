@@ -34,7 +34,7 @@ export class ClientService {
   }
 
   getAllClientProjects ():Observable<APIResponseModel> {
-    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClientProjects")
+    return this.http.get<APIResponseModel>(environment.API_URL + Constant.API_METHOD.GET_ALL_PROJECTS)
   }
 
   getAllUser () {
