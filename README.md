@@ -26,6 +26,6 @@ To serve the application locally:
    ```bash
    ng serve --port 4209
 
-##  Note
+####  Note
 The environment and public folders are included in this repository for demonstration and learning purposes only. 
 In a production environment, these folders are generally excluded from version control to maintain security and privacy.
