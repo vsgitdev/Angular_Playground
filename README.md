@@ -25,3 +25,7 @@ To serve the application locally:
 2. Start the development server on port 4209 to bypass CORS issues:  
    ```bash
    ng serve --port 4209
+
+##  Note
+The environment and public folders are included in this repository for demonstration and learning purposes only. 
+In a production environment, these folders are generally excluded from version control to maintain security and privacy.
