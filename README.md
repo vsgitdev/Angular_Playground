@@ -4,7 +4,7 @@ This project was created by following an Angular 18 tutorial on YouTube, which d
 
 ## Tutorial Reference
 
-This project is based on (https://www.youtube.com/watch?v=QjaNv7s1gW0) YouTube video, *Angular Crash Course | Angular 18 Tutorial | Angular Full Course 2024*. All credit for the tutorial content goes to the author, who has provided an exceptional learning resource.
+This project is based on (https://www.youtube.com/watch?v=QjaNv7s1gW0) YouTube video, *Angular Crash Course | Angular 18 Tutorial | Angular Full Course 2024*. All credit for the tutorial content goes to the author Chetan Jogi, who has provided an exceptional learning resource.
 
 ## Features
 
